@@ -1,7 +1,10 @@
 package realestate
 
 class House {
-
-    static constraints = {
-    }
+    String city
+    String region
+    String address
+    float feet
+    int price
+    Date buildDate
 }

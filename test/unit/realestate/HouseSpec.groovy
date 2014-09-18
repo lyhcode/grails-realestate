@@ -9,12 +9,21 @@ import spock.lang.Specification
 @TestFor(House)
 class HouseSpec extends Specification {
 
-    def setup() {
-    }
+    void "create a house"() {
+        given:
+        def house = new House(
+                city: 'Taichung',
+                region: 'Taiping',
+                address: 'Yu Cai Rd. No. 440',
+                feet: 45,
+                price: 960,
+                buildDate: new Date()
+        )
 
-    def cleanup() {
-    }
+        when:
+        house.save(flush: true)
 
-    void "test something"() {
+        then:
+        House.countByCity('Taichung') > 0
     }
 }
