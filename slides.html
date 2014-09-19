@@ -588,6 +588,27 @@ oauth {
 }</code></pre>
 <p><code>/house/search?q=KEYWORDS</code></p>
 </section></section>
+<section><section id="web-test" class="titleslide slide level1"><h1>Web Test</h1></section><section class="slide level2">
+
+<h3 id="geb">Geb</h3>
+<h3 id="selenium-webdriver">Selenium WebDriver</h3>
+<h3 id="section-1">+</h3>
+<h3 id="spock">Spock</h3>
+</section><section id="install-plugin-1" class="slide level2">
+<h1>Install Plugin</h1>
+<pre class="sourceCode java"><code class="sourceCode java">dependencies {
+    test <span class="st">&quot;org.seleniumhq.selenium:selenium-support:2.42.2&quot;</span>
+    test <span class="st">&quot;org.seleniumhq.selenium:selenium-firefox-driver:2.42.2&quot;</span>
+    test <span class="st">&quot;org.gebish:geb-spock:0.9.3&quot;</span>
+}</code></pre>
+<pre class="sourceCode java"><code class="sourceCode java">plugins {
+    test <span class="st">&quot;:spock:0.7&quot;</span>
+    test <span class="st">&quot;:geb:0.9.3&quot;</span>
+}</code></pre>
+</section><section id="functional-test" class="slide level2">
+<h1>Functional Test</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> test-app functional:spock</code></pre>
+</section></section>
 <section><section id="deployment" class="titleslide slide level1"><h1>Deployment</h1></section><section id="war-package" class="slide level2">
 <h1>War Package</h1>
 <pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> war</code></pre>

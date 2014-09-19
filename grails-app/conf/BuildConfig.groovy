@@ -44,6 +44,9 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+
+        // For Geb snapshot
+        mavenRepo "http://oss.sonatype.org/content/repositories/snapshots"
     }
 
     dependencies {
@@ -54,6 +57,10 @@ grails.project.dependency.resolution = {
 
         // OAuth required scribe framework
         runtime "org.scribe:scribe:1.3.5"
+
+        // Geb Web Test
+        test "org.seleniumhq.selenium:selenium-firefox-driver:2.43.1"
+        test "org.gebish:geb-spock:0.9.3"
     }
 
     plugins {
@@ -89,5 +96,9 @@ grails.project.dependency.resolution = {
 
         // Elasticsearch
         compile ":elasticsearch:0.0.3.3"
+
+        // Geb Web Test
+        //test ":spock:0.7"
+        test ":geb:0.9.3"
     }
 }
