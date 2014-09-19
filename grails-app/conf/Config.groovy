@@ -121,14 +121,14 @@ log4j.main = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'realestate.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'realestate.UserRole'
 grails.plugin.springsecurity.authority.className = 'realestate.Role'
-//grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-//	'/':                              ['permitAll'],
-//	'/index':                         ['permitAll'],
-//	'/index.gsp':                     ['permitAll'],
-//	'/assets/**':                     ['permitAll'],
-//	'/**/js/**':                      ['permitAll'],
-//	'/**/css/**':                     ['permitAll'],
-//	'/**/images/**':                  ['permitAll'],
-//	'/**/favicon.ico':                ['permitAll']
-//]
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/**':                            ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/assets/**':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
 
