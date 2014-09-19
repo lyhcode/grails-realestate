@@ -2,9 +2,13 @@
 % lyhcode
 % TWJUG Sep 20, 2014
 
-Hello, World.
+### Hello, World.
 
 <!-- [http://goo.gl/y5hZvo](http://goo.gl/y5hZvo) -->
+
+&nbsp;
+
+[Open Slides](https://rawgit.com/lyhcode/grails-realestate/master/slides.html)
 
 &nbsp;
 
