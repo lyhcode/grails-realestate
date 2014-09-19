@@ -86,5 +86,8 @@ grails.project.dependency.resolution = {
 
         // Twitter Bootstrap
         runtime ":twitter-bootstrap:3.2.0.2"
+
+        // Elasticsearch
+        compile ":elasticsearch:0.0.3.3"
     }
 }

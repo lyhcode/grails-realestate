@@ -103,6 +103,9 @@
 			</ul>
 		</div>
 		<div id="page-body" role="main">
+
+            <bs3:alert><b>Well done!</b> You successfully read this important alert message.</bs3:alert>
+
             <sec:ifLoggedIn>
                 <g:link uri="/j_spring_security_logout" style="float: right">Logout</g:link>
                 <h1>Hello, <sec:username />. Welcome to Grails</h1>
