@@ -4,7 +4,7 @@
 
 Hello, World.
 
-<style>
+<style tyle="text/css">
 pre.sourceCode {
 background: black;
 padding: .5em;
