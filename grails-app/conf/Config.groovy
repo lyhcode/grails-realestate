@@ -89,7 +89,7 @@ environments {
     development {
         grails.logging.jul.usebridge = true
 
-        grails.serverURL = "http://dev.teamcollab.org:8080"
+        grails.serverURL = "http://dev.teamcollab.org:8080/realestate"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -145,3 +145,35 @@ oauth {
 
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'realestate.OAuthID'
+
+
+// ElasticSearch
+elasticSearch {
+    datastoreImpl = "hibernateDatastore"
+    date.formats = [
+            "yyyy-MM-dd'T'HH:mm:ss'Z'"
+    ]
+    client.hosts = [
+            [host: 'localhost', port: 9300]
+    ]
+    defaultExcludedProperties = ["password"]
+    disableAutoIndex = false
+    bulkIndexOnStartup = true
+    maxBulkRequest = 500
+    searchableProperty.name = 'searchable'
+}
+environments {
+    development {
+        elasticSearch.client.mode = 'local'
+    }
+    test {
+        elasticSearch {
+            client.mode = 'local'
+            index.store.type = 'memory'
+        }
+    }
+    production {
+        elasticSearch.client.mode = 'node'
+        //elasticSearch.client.mode = 'local'
+    }
+}
