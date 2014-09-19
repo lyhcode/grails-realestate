@@ -51,6 +51,9 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0-grails-2.4"
+
+        // OAuth required scribe framework
+        runtime "org.scribe:scribe:1.3.5"
     }
 
     plugins {
@@ -74,6 +77,13 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 
         // Spring Security Core Plugin
-        compile ":spring-security-core:2.0-RC4"
+        compile ":spring-security-core:2.0-SNAPSHOT"
+
+        // Spring Security OAuth2
+        compile (":oauth:2.5") { exclude "scribe" }
+        compile ":spring-security-oauth:2.1.0-RC4"
+        compile ":spring-security-oauth-facebook:0.2"
+
+        // Twitter Bootstrap
     }
 }

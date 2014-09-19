@@ -110,6 +110,9 @@
             <sec:ifNotLoggedIn>
                 <g:link controller="login" action="auth" style="float: right">Login</g:link>
                 <h1>Welcome to Grails</h1>
+
+                <oauth:connect provider="facebook">Sign-in with Facebook</oauth:connect>
+
             </sec:ifNotLoggedIn>
 			<p>Congratulations, you have successfully started your first Grails application! At the moment
 			   this is the default page, feel free to modify it to either redirect to a controller or display whatever

@@ -88,6 +88,8 @@ grails.hibernate.osiv.readonly = false
 environments {
     development {
         grails.logging.jul.usebridge = true
+
+        grails.serverURL = "http://dev.teamcollab.org:8080"
     }
     production {
         grails.logging.jul.usebridge = false
@@ -116,7 +118,6 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'realestate.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'realestate.UserRole'
@@ -132,3 +133,15 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 
+// OAuth Facebook
+oauth {
+    providers {
+        facebook {
+            key = '363532783795859'
+            secret = '----App Secret----'
+        }
+    }
+}
+
+// Added by the Spring Security OAuth plugin:
+grails.plugin.springsecurity.oauth.domainClass = 'realestate.OAuthID'
