@@ -33,13 +33,21 @@ code > span.st { color: #5AABC5; }
 
 # lyhcode.info
 
----
+----
 
-<img src="http://lyhcode.info/images/lyhcode.png" alt="lyhcode" />
+![](http://lyhcode.info/images/lyhcode.png)
 
-* 資深程序猿
+* Senior Software Engineer (資深程序猿)
 * Love Groovy, hate Java.
 * vCard: <font color="cyan">`lyhcode.info`</font>
+
+----
+
+![](http://37signals.com/images/remote/remote_front.png)
+
+----
+
+![](http://www.books.com.tw/img/001/063/29/0010632940.jpg)
 
 ## Groovy Tutorial
 
