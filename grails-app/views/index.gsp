@@ -103,7 +103,14 @@
 			</ul>
 		</div>
 		<div id="page-body" role="main">
-			<h1>Welcome to Grails</h1>
+            <sec:ifLoggedIn>
+                <g:link uri="/j_spring_security_logout" style="float: right">Logout</g:link>
+                <h1>Hello, <sec:username />. Welcome to Grails</h1>
+            </sec:ifLoggedIn>
+            <sec:ifNotLoggedIn>
+                <g:link controller="login" action="auth" style="float: right">Login</g:link>
+                <h1>Welcome to Grails</h1>
+            </sec:ifNotLoggedIn>
 			<p>Congratulations, you have successfully started your first Grails application! At the moment
 			   this is the default page, feel free to modify it to either redirect to a controller or display whatever
 			   content you may choose. Below is a list of controllers that are currently deployed in this application,

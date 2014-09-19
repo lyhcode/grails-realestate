@@ -18,6 +18,13 @@ hibernate {
 environments {
     development {
         dataSource {
+            pooled = true
+            jmxExport = true
+//            driverClassName = "org.h2.Driver"
+            username = "sa"
+            password = ""
+
+            dialect = realestate.ImprovedH2Dialect
             dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:h2:mem:devDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
         }
