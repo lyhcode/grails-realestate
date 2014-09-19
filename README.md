@@ -757,7 +757,6 @@ def search() {
 
 ```java
 dependencies {
-    test "org.seleniumhq.selenium:selenium-support:2.42.2"
     test "org.seleniumhq.selenium:selenium-firefox-driver:2.42.2"
     test "org.gebish:geb-spock:0.9.3"
 }
@@ -765,7 +764,6 @@ dependencies {
 
 ```java
 plugins {
-    test ":spock:0.7"
     test ":geb:0.9.3"
 }
 ```
