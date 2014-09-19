@@ -85,5 +85,6 @@ grails.project.dependency.resolution = {
         compile ":spring-security-oauth-facebook:0.2"
 
         // Twitter Bootstrap
+        runtime ":twitter-bootstrap:3.2.0.2"
     }
 }

@@ -108,7 +108,7 @@
                 <h1>Hello, <sec:username />. Welcome to Grails</h1>
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
-                <g:link controller="login" action="auth" style="float: right">Login</g:link>
+                <g:link controller="login" action="auth" class="pull-right btn btn-default">Login</g:link>
                 <h1>Welcome to Grails</h1>
 
                 <oauth:connect provider="facebook">Sign-in with Facebook</oauth:connect>
