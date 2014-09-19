@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="lyhcode" />
+  <title>Groovy on Grails</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; }
+code > span.dt { color: #902000; }
+code > span.dv { color: #40a070; }
+code > span.bn { color: #40a070; }
+code > span.fl { color: #40a070; }
+code > span.ch { color: #4070a0; }
+code > span.st { color: #4070a0; }
+code > span.co { color: #60a0b0; font-style: italic; }
+code > span.ot { color: #007020; }
+code > span.al { color: #ff0000; font-weight: bold; }
+code > span.fu { color: #06287e; }
+code > span.er { color: #ff0000; font-weight: bold; }
+    </style>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/css/theme/default.css" id="theme">
+  <link rel="stylesheet" media="print" href="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Groovy on Grails</h1>
+    <h2 class="author">lyhcode</h2>
+    <h3 class="date">TWJUG Sep 20, 2014</h3>
+</section>
+
+<section class="slide level2">
+
+<p>Hello, World.</p>
+<style>
+pre.sourceCode {
+background: black;
+padding: .5em;
+}
+.reveal h1 {
+/*background: -webkit-linear-gradient(#eee, #333);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;*/
+}
+.reveal h1, .reveal h2, .reveal h3 {
+text-transform: none;
+}
+code > span.fu { color: #BBBBBB; }
+code > span.st { color: #5AABC5; }
+</style>
+
+</section>
+<section><section id="lyhcode.info" class="titleslide slide level1"><h1>lyhcode.info</h1></section><section class="slide level2">
+
+<p><img src="http://lyhcode.info/images/lyhcode.png" alt="lyhcode" /></p>
+<ul>
+<li>資深程序猿</li>
+<li>Love Groovy, hate Java.</li>
+<li>vCard: <font color="cyan"><code>lyhcode.info</code></font></li>
+</ul>
+</section><section id="groovy-tutorial" class="slide level2">
+<h1>Groovy Tutorial</h1>
+<p>CodeData</p>
+<p>http://www.codedata.com.tw/tag/groovy/</p>
+</section><section id="projects" class="slide level2">
+<h1>Projects</h1>
+<ul>
+<li>PLWeb</li>
+<li>ContPub</li>
+<li>CodeCanaan</li>
+<li>E7READ</li>
+</ul>
+</section></section>
+<section><section id="groovy-for-web-development" class="titleslide slide level1"><h1>Groovy for Web Development</h1></section><section id="groovylets" class="slide level2">
+<h1>Groovylets</h1>
+<ul>
+<li>Java Servlets in Groovy</li>
+<li>http://groovy.codehaus.org/Groovlets</li>
+</ul>
+<pre class="sourceCode java"><code class="sourceCode java">html.<span class="fu">html</span> {
+    head {
+        <span class="fu">title</span>(<span class="st">&quot;Groovy Servlet&quot;</span>)
+    }
+    body {
+        ul {
+            [&#39;Java&#39;, &#39;Groovy&#39;, &#39;Scala&#39;].<span class="fu">each</span> {
+                <span class="fu">li</span>(<span class="st">&quot;Hello, ${request.remoteHost}&quot;</span>)
+            }
+        }
+    }
+}</code></pre>
+</section><section id="gsp" class="slide level2">
+<h1>GSP</h1>
+<ul>
+<li>Groovy Servlet Pages</li>
+<li>http://groovy.codehaus.org/GSP</li>
+</ul>
+<pre class="sourceCode jsp"><code class="sourceCode jsp">&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;GSP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;ul&gt;
+    &lt;% [&#39;Java&#39;, &#39;Groovy&#39;, &#39;Scala&#39;].each { %&gt;
+        &lt;li&gt;Hello, ${it}&lt;/li&gt;
+    &lt;% } %&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+</section></section>
+<section><section id="grails" class="titleslide slide level1"><h1>Grails</h1></section><section id="grails-1" class="slide level2">
+<h1>Grails</h1>
+<h3 id="an-open-source">an Open Source,</h3>
+<h3 id="full-stack">full stack,</h3>
+<h3 id="web-application-framework-for-the-jvm.">web application framework for the JVM.</h3>
+</section><section class="slide level2">
+
+<figure>
+<img src="http://upload.wikimedia.org/wikipedia/de/5/56/Grails_logo_2009_2010.jpg" />
+</figure>
+</section><section class="slide level2">
+
+<h3 id="modern-web-development">Modern Web Development</h3>
+<p>in</p>
+<p>Groovy programming language</p>
+<p>for</p>
+<p>Java developers</p>
+</section><section class="slide level2">
+
+<blockquote>
+<p>Don't Reinvent the Wheel</p>
+</blockquote>
+</section><section class="slide level2">
+
+<h3 id="spring">Spring</h3>
+<h3 id="hibernate">Hibernate</h3>
+<p> </p>
+<p>(Grails 2.4.3)</p>
+</section><section class="slide level2">
+
+<h3 id="gorm">GORM</h3>
+<p><small>Model</small></p>
+<p> </p>
+<h3 id="sitemesh">SiteMesh</h3>
+<p><small>View Decorator</small></p>
+</section><section id="based-on-groovy" class="slide level2">
+<h1>Based on Groovy</h1>
+<figure>
+<img src="http://groovy.codehaus.org/images/groovy-logo-medium.png" />
+</figure>
+</section><section class="slide level2">
+
+<h3 id="groovy-dsl">Groovy DSL</h3>
+<p><small><code>http://localhost:8080/user/forgetPassword/103</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> UserController {
+    def <span class="fu">forgetPassword</span>(User user) {
+        sendMail {
+            to user.<span class="fu">email</span>
+            subject <span class="st">&quot;Forget Your Password?&quot;</span>
+            body <span class="st">&quot;Your password is ${user.password}&quot;</span>
+        }
+        respond user
+    }
+}</code></pre>
+</section><section class="slide level2">
+
+<figure>
+<img src="http://spring.io/img/platform-stack.png" alt="Spring IO Platform" /><figcaption>Spring IO Platform</figcaption>
+</figure>
+</section></section>
+<section><section id="install" class="titleslide slide level1"><h1>Install</h1></section><section id="gvm" class="slide level2">
+<h1>GVM</h1>
+<p>使用 GVM 管理開發環境</p>
+<h3 id="the-groovy-environment-manager">the Groovy enVironment Manager</h3>
+<p><small><code>http://gvmtool.net</code></small></p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="co"># Install GVM</span>
+<span class="kw">curl</span> -s get.gvmtool.net <span class="kw">|</span> <span class="kw">bash</span>
+
+<span class="co"># Install Grails</span>
+<span class="kw">gvm</span> install grails</code></pre>
+</section></section>
+<section><section id="getting-started" class="titleslide slide level1"><h1>Getting Started</h1></section><section id="create-app" class="slide level2">
+<h1>Create-App</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> create-app realestate</code></pre>
+</section><section id="whats-inside" class="slide level2">
+<h1>What's Inside</h1>
+<ul>
+<li><font color="yellow"><code>grails-app</code></font></li>
+<li><font color="yellow"><code>web-app</code></font></li>
+<li><code>wrapper</code></li>
+<li><code>src</code></li>
+<li><font color="yellow"><code>test</code></font></li>
+<li><code>scripts</code></li>
+<li><code>lib</code></li>
+<li><code>application.properties</code></li>
+</ul>
+</section><section id="run-app" class="slide level2">
+<h1>Run-App</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> run-app</code></pre>
+</section><section id="done" class="slide level2">
+<h1>Done</h1>
+<p> </p>
+<p><code>Server running. Browse to</code></p>
+<p><code>http://localhost:8080/realestate</code></p>
+</section></section>
+<section><section id="domain-class" class="titleslide slide level1"><h1>Domain Class</h1></section><section class="slide level2">
+
+<h3 id="domain-class-model-entity">Domain Class = Model = Entity</h3>
+</section><section id="define-an-entity" class="slide level2">
+<h1>Define an entity</h1>
+<pre class="sourceCode json"><code class="sourceCode json"><span class="er">房屋</span> {
+    <span class="er">縣市;</span>
+    <span class="er">鄉鎮區;</span>
+    <span class="er">地址;</span>
+    <span class="er">坪數;</span>
+    <span class="er">售價;</span>
+    <span class="er">完成日期;</span>
+}</code></pre>
+</section><section id="create-domain-class" class="slide level2">
+<h1>Create-Domain-Class</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> create-domain-class house</code></pre>
+</section><section id="whats-inside-1" class="slide level2">
+<h1>What's Inside</h1>
+<p>Domain Class</p>
+<p><small><code>grails-app/domain/realestate/House.groovy</code></small></p>
+<p>Unit Test</p>
+<p><small><code>test/unit/realestate/HouseSpec.groovy</code></small></p>
+</section><section id="the-house-class" class="slide level2">
+<h1>The House Class</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> House {
+    String city
+    String region
+    String address
+    <span class="dt">float</span> feet
+    <span class="dt">int</span> price
+    Date buildDate
+}</code></pre>
+</section><section id="unit-test" class="slide level2">
+<h1>Unit Test</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="fu">@TestFor</span>(House)
+<span class="kw">class</span> HouseSpec <span class="kw">extends</span> Specification {
+    <span class="dt">void</span> <span class="st">&quot;create a house&quot;</span>() {
+        given:
+        def house = <span class="kw">new</span> <span class="fu">House</span>(
+                city: &#39;Taichung&#39;,
+                region: &#39;Taiping&#39;,
+                address: &#39;Yu Cai Rd. No. <span class="dv">440</span>&#39;,
+                feet: <span class="dv">45</span>,
+                price: <span class="dv">960</span>,
+                buildDate: <span class="kw">new</span> Date()
+        )
+        
+        when:
+        house.<span class="fu">save</span>(flush: <span class="kw">true</span>)
+        
+        then:
+        House.<span class="fu">countByCity</span>(&#39;Taichung&#39;) &gt; <span class="dv">0</span>
+    }
+}</code></pre>
+</section><section id="test-app" class="slide level2">
+<h1>Test-App</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> test-app</code></pre>
+</section><section id="test-report" class="slide level2">
+<h1>Test Report</h1>
+<p>Browse to</p>
+<p><small><code>target/test-reports/html/index.html</code></small></p>
+</section><section id="shell" class="slide level2">
+<h1>Shell</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> shell</code></pre>
+</section></section>
+<section><section id="scaffolding" class="titleslide slide level1"><h1>Scaffolding</h1></section><section id="generate-all" class="slide level2">
+<h1>Generate-All</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> generate-all realestate.House</code></pre>
+</section><section id="thats-all" class="slide level2">
+<h1>That's all?</h1>
+</section><section id="run-app-1" class="slide level2">
+<h1>Run-App</h1>
+<h3 id="again">again</h3>
+<pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">grails</span> run-app</code></pre>
+</section><section id="crud" class="slide level2">
+<h1>CRUD</h1>
+<p>Browse to</p>
+<p><small><code>http://localhost:8080/realestate/house</code></small></p>
+</section><section id="whats-inside-2" class="slide level2">
+<h1>What's Inside</h1>
+<ul>
+<li>Controller</li>
+<li>Controller Test</li>
+<li>View</li>
+</ul>
+</section><section id="url-mappings" class="slide level2">
+<h1>URL Mappings</h1>
+<p><small><code>grails-app/conf/UrlMappings.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> UrlMappings {
+    <span class="dt">static</span> mappings = {
+        <span class="st">&quot;/$controller/$action?/$id?(.$format)?&quot;</span>{
+            constraints {
+                <span class="co">// apply constraints here</span>
+            }
+        }
+    }
+}</code></pre>
+</section><section id="xml-and-json" class="slide level2">
+<h1>XML and JSON</h1>
+<p><small><code>http://localhost:8080/realestate/house/index.json</code></small></p>
+<p><small><code>http://localhost:8080/realestate/house/index.xml</code></small></p>
+<p><small><code>http://localhost:8080/realestate/house/show/1.json</code></small></p>
+<p><small><code>http://localhost:8080/realestate/house/show/1.xml</code></small></p>
+</section></section>
+<section><section id="spring-security" class="titleslide slide level1"><h1>Spring Security</h1></section><section class="slide level2">
+
+<h3 id="spring-security-is...">Spring Security is...</h3>
+<p>a framework that</p>
+<p>focuses on providing both authentication and authorization</p>
+<p>to Java applications.</p>
+</section><section class="slide level2">
+
+<h3 id="grails-2">Grails</h3>
+<h3 id="section">+</h3>
+<h3 id="spring-security-1">Spring Security</h3>
+</section><section class="slide level2">
+
+<h3 id="spring-security-core-plugin">Spring Security Core Plugin</h3>
+<pre class="sourceCode java"><code class="sourceCode java">plugins {
+    <span class="co">// Spring Security Core Plugin</span>
+    compile <span class="st">&quot;:spring-security-core:2.0-SNAPSHOT&quot;</span>
+}</code></pre>
+</section><section id="s2-quickstart" class="slide level2">
+<h1>s2-quickstart</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> s2-quickstart realestate User Role</code></pre>
+</section><section id="config.groovy" class="slide level2">
+<h1>Config.groovy</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// Added by the Spring Security Core plugin:</span>
+grails.<span class="fu">plugin</span>.<span class="fu">springsecurity</span>.<span class="fu">userLookup</span>.<span class="fu">userDomainClassName</span> = &#39;realestate.<span class="fu">User</span>&#39;
+grails.<span class="fu">plugin</span>.<span class="fu">springsecurity</span>.<span class="fu">userLookup</span>.<span class="fu">authorityJoinClassName</span> = &#39;realestate.<span class="fu">UserRole</span>&#39;
+grails.<span class="fu">plugin</span>.<span class="fu">springsecurity</span>.<span class="fu">authority</span>.<span class="fu">className</span> = &#39;realestate.<span class="fu">Role</span>&#39;
+grails.<span class="fu">plugin</span>.<span class="fu">springsecurity</span>.<span class="fu">controllerAnnotations</span>.<span class="fu">staticRules</span> = [
+    &#39;<span class="co">/**&#39;:                            [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/index&#39;:                         [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/index.gsp&#39;:                     [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/assets/**&#39;:                     [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/**/</span>js<span class="co">/**&#39;:                      [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/**/</span>css<span class="co">/**&#39;:                     [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/**/</span>images<span class="co">/**&#39;:                  [&#39;permitAll&#39;],</span>
+<span class="co">    &#39;/**/</span>favicon.<span class="fu">ico</span>&#39;:                [&#39;permitAll&#39;]
+]</code></pre>
+</section><section id="user-and-role" class="slide level2">
+<h1>User and Role</h1>
+<pre class="sourceCode java"><code class="sourceCode java">def roleUser = <span class="kw">new</span> Role(authority: &#39;ROLE_USER&#39;)
+def roleAdmin = <span class="kw">new</span> Role(authority: &#39;ROLE_ADMIN&#39;)
+
+roleUser.<span class="fu">save</span> flush: <span class="kw">true</span>
+roleAdmin.<span class="fu">save</span> flush: <span class="kw">true</span>
+
+def admin = <span class="kw">new</span> <span class="fu">User</span>(
+        username: &#39;admin&#39;,
+        password: &#39;admin&#39;,
+        enabled: <span class="kw">true</span>,
+        accountExpired: <span class="kw">false</span>,
+        accountLocked: <span class="kw">false</span>,
+        passwordExpired: <span class="kw">false</span>
+)
+
+admin.<span class="fu">save</span> flush: <span class="kw">true</span>
+
+UserRole.<span class="fu">create</span>(admin, roleUser, <span class="kw">true</span>)
+UserRole.<span class="fu">create</span>(admin, roleAdmin, <span class="kw">true</span>)</code></pre>
+</section><section id="bootstrap" class="slide level2">
+<h1>BootStrap</h1>
+<p><small><code>grails-app/conf/BootStrap.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> BootStrap {
+    def init = { servletContext -&gt;
+        <span class="co">//...</span>
+    }
+    def destroy = {
+    }
+}</code></pre>
+</section><section id="fix-bug" class="slide level2">
+<h1>Fix Bug</h1>
+<p><small><code>grails-app/conf/DataSource.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java">dialect = realestate.<span class="fu">ImprovedH2Dialect</span></code></pre>
+<p><small><code>src/groovy/realestate/ImprovedH2Dialect.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">public</span> <span class="kw">class</span> ImprovedH2Dialect <span class="kw">extends</span> H2Dialect {
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> String <span class="fu">getDropSequenceString</span>(String sequenceName) {
+        <span class="kw">return</span> <span class="st">&quot;drop sequence if exists &quot;</span> + sequenceName;
+    }
+    <span class="fu">@Override</span>
+    <span class="kw">public</span> <span class="dt">boolean</span> <span class="fu">dropConstraints</span>() {
+        <span class="kw">return</span> <span class="kw">false</span>;
+    }
+}</code></pre>
+</section><section id="spring-security-tags" class="slide level2">
+<h1>Spring Security Tags</h1>
+<ul>
+<li><code>&lt;sec:ifLoggedIn&gt;...&lt;/sec:ifLoggedIn&gt;</code></li>
+<li><code>&lt;sec:username /&gt;</code></li>
+</ul>
+<p><small><code>grails-app/views/index.gsp</code></small></p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;sec:ifLoggedIn&gt;</span>
+    <span class="kw">&lt;g:link</span><span class="ot"> uri=</span><span class="st">&quot;/j_spring_security_logout&quot;</span><span class="kw">&gt;</span>Logout<span class="kw">&lt;/g:link&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>Hello, <span class="kw">&lt;sec:username</span> <span class="kw">/&gt;</span>. Welcome to Grails<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;/sec:ifLoggedIn&gt;</span>
+<span class="kw">&lt;sec:ifNotLoggedIn&gt;</span>
+    <span class="kw">&lt;g:link</span><span class="ot"> controller=</span><span class="st">&quot;login&quot;</span><span class="ot"> action=</span><span class="st">&quot;auth&quot;</span><span class="kw">&gt;</span>Login<span class="kw">&lt;/g:link&gt;</span>
+    <span class="kw">&lt;h1&gt;</span>Welcome to Grails<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;/sec:ifNotLoggedIn&gt;</span></code></pre>
+</section></section>
+<section><section id="oauth" class="titleslide slide level1"><h1>OAuth</h1></section><section id="oauth-plugin" class="slide level2">
+<h1>OAuth Plugin</h1>
+<p><small><code>grails-app/conf/BuildConfig.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java">    dependencies {
+        <span class="co">// OAuth required scribe framework</span>
+        runtime <span class="st">&quot;org.scribe:scribe:1.3.5&quot;</span>
+    }
+    plugins {
+        <span class="co">// Spring Security Core Plugin</span>
+        compile <span class="st">&quot;:spring-security-core:2.0-SNAPSHOT&quot;</span>
+
+        <span class="co">// Spring Security OAuth2</span>
+        <span class="fu">compile</span> (<span class="st">&quot;:oauth:2.5&quot;</span>) { exclude <span class="st">&quot;scribe&quot;</span> }
+        compile <span class="st">&quot;:spring-security-oauth:2.1.0-RC4&quot;</span>
+        compile <span class="st">&quot;:spring-security-oauth-facebook:0.2&quot;</span>
+    }</code></pre>
+<!-- 版本很重要！版本很重要！版本很重要！ -->
+
+</section><section id="s2-init-oauth" class="slide level2">
+<h1>s2-init-oauth</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> s2-init-oauth realestate OAuthID</code></pre>
+<p>Add relationship to User domain class.</p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="dt">static</span> hasMany = [oAuthIDs: OAuthID]</code></pre>
+</section><section class="slide level2">
+
+<h3 id="oauth-provider-facebook">OAuth Provider: Facebook</h3>
+<p><small><code>grails-app/conf/Config.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="co">// OAuth Facebook</span>
+oauth {
+    providers {
+        facebook {
+            key = &#39;<span class="dv">363532783795859</span>&#39;
+            secret = &#39;----App Secret----&#39;
+        }
+    }
+}</code></pre>
+<p><small><code>~/.grails/realestate-config.groovy</code></small></p>
+<pre class="sourceCode java"><code class="sourceCode java">oauth.<span class="fu">providers</span>.<span class="fu">facebook</span>.<span class="fu">secret</span> = &#39;....&#39;</code></pre>
+</section><section id="server-url" class="slide level2">
+<h1>Server URL</h1>
+<pre class="sourceCode java"><code class="sourceCode java">grails.<span class="fu">serverURL</span> = <span class="st">&quot;http://dev.teamcollab.org:8080/realestate&quot;</span></code></pre>
+</section><section id="facebook-connect" class="slide level2">
+<h1>Facebook Connect</h1>
+<p><small><code>grails-app/views/index.gsp</code></small></p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;oauth:connect</span><span class="ot"> provider=</span><span class="st">&quot;facebook&quot;</span><span class="kw">&gt;</span>Sign-in with Facebook<span class="kw">&lt;/oauth:connect&gt;</span></code></pre>
+<!-- https://developers.facebook.com/apps/363532783795859/settings/ -->
+
+</section></section>
+<section><section id="layout" class="titleslide slide level1"><h1>Layout</h1></section><section id="twitter-bootstrap" class="slide level2">
+<h1>Twitter Bootstrap</h1>
+<pre class="sourceCode java"><code class="sourceCode java">plugins {
+    <span class="co">// Twitter Bootstrap</span>
+    runtime <span class="st">&quot;:twitter-bootstrap:3.2.0.2&quot;</span>
+}</code></pre>
+</section><section id="assets-pipeline" class="slide level2">
+<h1>Assets Pipeline</h1>
+<pre class="sourceCode java"><code class="sourceCode java">plugins {
+    compile <span class="st">&quot;:asset-pipeline:1.9.6&quot;</span>
+
+    <span class="co">// Uncomment these to enable additional asset-pipeline capabilities</span>
+    <span class="co">//compile &quot;:sass-asset-pipeline:1.9.0&quot;</span>
+    <span class="co">//compile &quot;:less-asset-pipeline:1.10.0&quot;</span>
+    <span class="co">//compile &quot;:coffee-asset-pipeline:1.8.0&quot;</span>
+    <span class="co">//compile &quot;:handlebars-asset-pipeline:1.3.0.3&quot;</span>
+}</code></pre>
+</section><section id="require-bootstrap" class="slide level2">
+<h1>Require Bootstrap</h1>
+<p><small><code>grails-app/assets/javascripts/application.js</code></small></p>
+<pre class="sourceCode javascript"><code class="sourceCode javascript"><span class="co">//= require bootstrap</span></code></pre>
+<p><small><code>grails-app/assets/stylesheets/application.css</code></small></p>
+<pre class="sourceCode css"><code class="sourceCode css"><span class="co">/*</span>
+<span class="co">*= require bootstrap</span>
+<span class="co">*/</span></code></pre>
+</section><section id="sitemesh-1" class="slide level2">
+<h1>SiteMesh</h1>
+<p>Apply a &quot;layout&quot; for views.</p>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;meta</span><span class="ot"> name=</span><span class="st">&quot;layout&quot;</span><span class="ot"> content=</span><span class="st">&quot;main&quot;</span> <span class="kw">/&gt;</span>
+    <span class="kw">&lt;title&gt;</span>Page Title<span class="kw">&lt;/title&gt;</span></code></pre>
+</section><section class="slide level2">
+
+<h3 id="sitemesh-layout">SiteMesh Layout</h3>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="dt">&lt;!DOCTYPE </span>html<span class="dt">&gt;</span>
+<span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;&lt;g:layoutTitle</span><span class="ot"> default=</span><span class="st">&quot;Untitled&quot;</span> <span class="kw">/&gt;&lt;/title&gt;</span>
+    <span class="kw">&lt;g:layoutHead/&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;g:layoutBody/&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+</section><section id="taglib" class="slide level2">
+<h1>TagLib</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> BootstrapTagLib {
+
+    <span class="dt">static</span> namespace = <span class="st">&quot;bs3&quot;</span>
+
+    def alert = { attrs, body -&gt;
+        out &lt;&lt; <span class="st">&quot;&lt;div class=</span><span class="ch">\&quot;</span><span class="st">alert alert-${attrs.type?:&#39;success&#39;}</span><span class="ch">\&quot;</span><span class="st">&gt;&quot;</span>
+        out &lt;&lt; <span class="fu">body</span>()
+        out &lt;&lt; <span class="st">&quot;&lt;/div&gt;&quot;</span>
+    }
+}</code></pre>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;bs3:alert&gt;&lt;b&gt;</span>Well done!<span class="kw">&lt;/b&gt;</span> You successfully ...<span class="kw">&lt;/bs3:alert&gt;</span></code></pre>
+</section></section>
+<section><section id="elasticsearch" class="titleslide slide level1"><h1>Elasticsearch</h1></section><section id="install-plugin" class="slide level2">
+<h1>Install Plugin</h1>
+<pre class="sourceCode java"><code class="sourceCode java">plugins {
+    <span class="co">// Elasticsearch</span>
+    compile <span class="st">&quot;:elasticsearch:0.0.3.3&quot;</span>
+}</code></pre>
+</section><section id="configuration" class="slide level2">
+<h1>Configuration</h1>
+<pre class="sourceCode java"><code class="sourceCode java">elasticSearch {
+    datastoreImpl = <span class="st">&quot;hibernateDatastore&quot;</span>
+    date.<span class="fu">formats</span> = [
+            <span class="st">&quot;yyyy-MM-dd&#39;T&#39;HH:mm:ss&#39;Z&#39;&quot;</span>
+    ]
+    client.<span class="fu">hosts</span> = [
+            [host: &#39;localhost&#39;, port: <span class="dv">9300</span>]
+    ]
+    defaultExcludedProperties = [<span class="st">&quot;password&quot;</span>]
+    disableAutoIndex = <span class="kw">false</span>
+    bulkIndexOnStartup = <span class="kw">true</span>
+    maxBulkRequest = <span class="dv">500</span>
+    searchableProperty.<span class="fu">name</span> = &#39;searchable&#39;
+}</code></pre>
+</section><section class="slide level2">
+
+<pre class="sourceCode java"><code class="sourceCode java">environments {
+    development {
+        elasticSearch.<span class="fu">client</span>.<span class="fu">mode</span> = &#39;local&#39;
+    }
+    test {
+        elasticSearch {
+            client.<span class="fu">mode</span> = &#39;local&#39;
+            index.<span class="fu">store</span>.<span class="fu">type</span> = &#39;memory&#39;
+        }
+    }
+    production {
+        elasticSearch.<span class="fu">client</span>.<span class="fu">mode</span> = &#39;node&#39;
+        <span class="co">//elasticSearch.client.mode = &#39;local&#39;</span>
+    }
+}</code></pre>
+</section><section id="searchable" class="slide level2">
+<h1>Searchable</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="kw">class</span> House {
+    <span class="dt">static</span> searchable = <span class="kw">true</span>
+
+    <span class="co">//...</span>
+}</code></pre>
+</section><section id="searching" class="slide level2">
+<h1>Searching</h1>
+<pre class="sourceCode java"><code class="sourceCode java">def <span class="fu">search</span>() {
+    render House.<span class="fu">search</span>(params.<span class="fu">q</span>) as JSON
+}</code></pre>
+<p><code>/house/search?q=KEYWORDS</code></p>
+</section></section>
+<section><section id="deployment" class="titleslide slide level1"><h1>Deployment</h1></section><section id="war-package" class="slide level2">
+<h1>War Package</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">grails</span> war</code></pre>
+</section><section id="deploy-to-aws" class="slide level2">
+<h1>Deploy to AWS</h1>
+<h3 id="elastic-beanstalk">Elastic Beanstalk</h3>
+</section></section>
+<section><section id="real-world-projects" class="titleslide slide level1"><h1>Real World Projects</h1></section></section>
+<section><section id="the-end" class="titleslide slide level1"><h1>The End</h1></section></section>
+    </div>
+  </div>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/lib/js/head.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'default', // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://cdnjs.cloudflare.com/ajax/libs/reveal.js/2.6.2/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
