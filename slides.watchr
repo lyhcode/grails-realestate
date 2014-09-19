@@ -1,1 +1,1 @@
-watch ('slides/*') { |md| system('sh slides.sh') }
+watch ('README.md') { |md| system('sh slides.sh') }
