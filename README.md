@@ -60,7 +60,7 @@ http://www.codedata.com.tw/tag/groovy/
 ## Projects
 
 * PLWeb
-* ContPub
+* <del>ContPub</del>
 * CodeCanaan
 * FoodPrint.ws
 * E7READ

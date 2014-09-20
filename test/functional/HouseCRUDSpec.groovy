@@ -71,7 +71,7 @@ class HouseCRUDSpec extends GebReportingSpec {
         at ShowPage
     }
 
-    def "delete user"() {
+    def "delete house"() {
         given:
         def deletedId = id
         when:
