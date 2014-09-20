@@ -105,6 +105,13 @@ log4j.main = {
     //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
     //}
 
+    appenders {
+        //console name: 'stdout'
+        console name: "stdout", threshold: org.apache.log4j.Level.INFO
+    }
+
+    info 'grails.app'
+
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
@@ -145,7 +152,6 @@ oauth {
 
 // Added by the Spring Security OAuth plugin:
 grails.plugin.springsecurity.oauth.domainClass = 'realestate.OAuthID'
-
 
 // ElasticSearch
 elasticSearch {
