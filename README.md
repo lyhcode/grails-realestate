@@ -8,11 +8,13 @@
 
 &nbsp;
 
-[Open Slides](https://rawgit.com/lyhcode/grails-realestate/master/slides.html)
+[Slides](https://rawgit.com/lyhcode/grails-realestate/master/slides.html)
 
 &nbsp;
 
-https://github.com/lyhcode/grails-realestate
+Example code in GitHub
+
+[https://github.com/lyhcode/grails-realestate](https://github.com/lyhcode/grails-realestate)
 
 <style tyle="text/css">
 pre.sourceCode {
