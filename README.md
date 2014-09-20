@@ -31,6 +31,8 @@ text-transform: none;
 }
 code > span.fu { color: #BBBBBB; }
 code > span.st { color: #5AABC5; }
+code > span.kw { color: #00E642; }
+code > span.ot { color: #00A730; }
 </style>
 
 # lyhcode.info
@@ -40,18 +42,17 @@ code > span.st { color: #5AABC5; }
 ![](http://lyhcode.info/images/lyhcode.png)
 
 * Senior Software Engineer
-* Love Groovy, hate Java.
 * vCard: <font color="cyan">`lyhcode.info`</font>
 
 <!--
 ----
 
 ![](http://37signals.com/images/remote/remote_front.png)
--->
 
 ----
 
 ![](http://www.books.com.tw/img/001/063/29/0010632940.jpg)
+-->
 
 ## Groovy Tutorial
 
@@ -94,7 +95,7 @@ html.html {
 * Groovy Servlet Pages
 * http://groovy.codehaus.org/GSP
 
-```jsp
+```html
 <html>
 <head>
     <title>GSP</title>

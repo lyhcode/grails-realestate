@@ -70,6 +70,8 @@ text-transform: none;
 }
 code > span.fu { color: #BBBBBB; }
 code > span.st { color: #5AABC5; }
+code > span.kw { color: #00E642; }
+code > span.ot { color: #00A730; }
 </style>
 
 </section>
@@ -80,18 +82,18 @@ code > span.st { color: #5AABC5; }
 </figure>
 <ul>
 <li>Senior Software Engineer</li>
-<li>Love Groovy, hate Java.</li>
 <li>vCard: <font color="cyan"><code>lyhcode.info</code></font></li>
 </ul>
-</section><section id="section" class="slide level2">
-<h1><!--
+<!--
 ----
 
 ![](http://37signals.com/images/remote/remote_front.png)
---></h1>
-<figure>
-<img src="http://www.books.com.tw/img/001/063/29/0010632940.jpg" />
-</figure>
+
+----
+
+![](http://www.books.com.tw/img/001/063/29/0010632940.jpg)
+-->
+
 </section><section id="groovy-tutorial" class="slide level2">
 <h1>Groovy Tutorial</h1>
 <p>CodeData</p>
@@ -131,18 +133,18 @@ ContPub</del></li>
 <li>Groovy Servlet Pages</li>
 <li>http://groovy.codehaus.org/GSP</li>
 </ul>
-<pre class="sourceCode jsp"><code class="sourceCode jsp">&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;GSP&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;ul&gt;
-    &lt;% [&#39;Java&#39;, &#39;Groovy&#39;, &#39;Scala&#39;].each { %&gt;
-        &lt;li&gt;Hello, ${it}&lt;/li&gt;
-    &lt;% } %&gt;
-    &lt;/ul&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+<pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;html&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+    <span class="kw">&lt;title&gt;</span>GSP<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+    <span class="kw">&lt;ul&gt;</span>
+    <span class="er">&lt;</span>% [&#39;Java&#39;, &#39;Groovy&#39;, &#39;Scala&#39;].each { %&gt;
+        <span class="kw">&lt;li&gt;</span>Hello, ${it}<span class="kw">&lt;/li&gt;</span>
+    <span class="er">&lt;</span>% } %&gt;
+    <span class="kw">&lt;/ul&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
 </section></section>
 <section><section id="grails" class="titleslide slide level1"><h1>Grails</h1></section><section id="grails-1" class="slide level2">
 <h1>Grails</h1>
@@ -356,7 +358,7 @@ ContPub</del></li>
 </section><section class="slide level2">
 
 <h3 id="grails-2">Grails</h3>
-<h3 id="section-1">+</h3>
+<h3 id="section">+</h3>
 <h3 id="spring-security-1">Spring Security</h3>
 </section><section class="slide level2">
 
@@ -614,7 +616,7 @@ oauth {
 
 <h3 id="geb">Geb</h3>
 <h3 id="selenium-webdriver">Selenium WebDriver</h3>
-<h3 id="section-2">+</h3>
+<h3 id="section-1">+</h3>
 <h3 id="spock">Spock</h3>
 </section><section id="install-plugin-1" class="slide level2">
 <h1>Install Plugin</h1>
