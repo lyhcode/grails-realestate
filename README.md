@@ -524,6 +524,8 @@ public class ImprovedH2Dialect extends H2Dialect {
 
 ## Secured Annotation
 
+for controller or actions
+
 ```java
 @Secured(["ROLE_ADMIN"])
 ```
