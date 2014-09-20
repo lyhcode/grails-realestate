@@ -443,6 +443,9 @@ UserRole.<span class="fu">create</span>(admin, roleAdmin, <span class="kw">true<
     <span class="kw">&lt;g:link</span><span class="ot"> controller=</span><span class="st">&quot;login&quot;</span><span class="ot"> action=</span><span class="st">&quot;auth&quot;</span><span class="kw">&gt;</span>Login<span class="kw">&lt;/g:link&gt;</span>
     <span class="kw">&lt;h1&gt;</span>Welcome to Grails<span class="kw">&lt;/h1&gt;</span>
 <span class="kw">&lt;/sec:ifNotLoggedIn&gt;</span></code></pre>
+</section><section id="secured-annotation" class="slide level2">
+<h1>Secured Annotation</h1>
+<pre class="sourceCode java"><code class="sourceCode java"><span class="fu">@Secured</span>([<span class="st">&quot;ROLE_ADMIN&quot;</span>])</code></pre>
 </section></section>
 <section><section id="oauth" class="titleslide slide level1"><h1>OAuth</h1></section><section id="oauth-plugin" class="slide level2">
 <h1>OAuth Plugin</h1>

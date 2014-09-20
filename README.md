@@ -522,6 +522,12 @@ public class ImprovedH2Dialect extends H2Dialect {
 </sec:ifNotLoggedIn>
 ```
 
+## Secured Annotation
+
+```java
+@Secured(["ROLE_ADMIN"])
+```
+
 # OAuth
 
 ## OAuth Plugin
