@@ -37,13 +37,15 @@ code > span.st { color: #5AABC5; }
 
 ![](http://lyhcode.info/images/lyhcode.png)
 
-* Senior Software Engineer (資深程序猿)
+* Senior Software Engineer
 * Love Groovy, hate Java.
 * vCard: <font color="cyan">`lyhcode.info`</font>
 
+<!--
 ----
 
 ![](http://37signals.com/images/remote/remote_front.png)
+-->
 
 ----
 
@@ -794,8 +796,10 @@ grails war
 
 ### Elastic Beanstalk
 
+<!--
 # Real World Projects
 
 GR8 CRM http://gr8crm.github.io/
+-->
 
 # The End
