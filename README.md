@@ -62,6 +62,7 @@ http://www.codedata.com.tw/tag/groovy/
 * PLWeb
 * ContPub
 * CodeCanaan
+* FoodPrint.ws
 * E7READ
 
 # Groovy for Web Development
@@ -177,6 +178,12 @@ class UserController {
     }
 }
 ```
+
+----
+
+### DSR
+
+domain-specific runtime environments
 
 ----
 
