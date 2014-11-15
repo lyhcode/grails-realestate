@@ -59,8 +59,8 @@ grails.project.dependency.resolution = {
         runtime "org.scribe:scribe:1.3.5"
 
         // Geb Web Test
-        test "org.seleniumhq.selenium:selenium-firefox-driver:2.42.2"
-        test "org.gebish:geb-spock:0.9.3"
+        test "org.seleniumhq.selenium:selenium-firefox-driver:2.44.0"
+        test "org.gebish:geb-spock:0.10.0"
     }
 
     plugins {
