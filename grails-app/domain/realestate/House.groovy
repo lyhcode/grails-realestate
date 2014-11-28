@@ -2,7 +2,9 @@ package realestate
 
 class House {
 
-    static searchable = true
+    static searchable = {
+        address analyzer: 'cjk'
+    }
 
     String city
     String region
